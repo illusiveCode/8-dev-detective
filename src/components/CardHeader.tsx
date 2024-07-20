@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FC } from "react";
 
 type CardHeaderProps = {
@@ -5,6 +6,7 @@ type CardHeaderProps = {
   name: string;
   username: string;
   joinedDate: string;
+  link: string;
 };
 
 const CardHeader: FC<CardHeaderProps> = ({
@@ -12,12 +14,19 @@ const CardHeader: FC<CardHeaderProps> = ({
   name,
   username,
   joinedDate,
+  link,
 }) => (
-  <div className="">
-    <img src={image} alt={`${name}'s avatar`} />
+  <div className="flex gap-6">
+    <img
+      className="w-[70px] rounded-full "
+      src={image}
+      alt={`${name}'s avatar`}
+    />
     <div className="">
-      <h2>{name}</h2>
-      <h3>@{username}</h3>
+      <h2 className="">{name}</h2>
+      <Link href={link} className="text-light">
+        @{username}
+      </Link>
       <p>Joined {joinedDate}</p>
     </div>
   </div>

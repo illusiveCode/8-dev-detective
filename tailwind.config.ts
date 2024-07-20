@@ -7,6 +7,12 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      mobile: "375px",
+      tablet: "768px",
+      laptop: "1024px",
+      desktop: "1200px",
+    },
     container: {
       center: true,
       padding: {
@@ -19,19 +25,22 @@ const config: Config = {
     },
     extend: {
       colors: {
-        light: {
-          primary: "#0079FF",
-          secondary: "#697C9A",
-          accent: "#4B6A9B",
-          neutral: "#222731",
-          bg: "#F6F8FF",
-          light: "#FEFEFE",
+        primary: {
+          blue: "#0079FF",
+          grey: "#697C9A",
+          steel: "#4B6A9B",
+          "dark-blue": "#2B3442",
         },
+        neutral: {
+          white: "#FEFEFE",
+          "light-blue": "#F6F8FF",
+        },
+
         dark: {
-          primary: "#0079FF",
-          secondary: "#FFFFFF",
-          accent: "#141D2F",
-          neutral: "#1E2A47",
+          blue: "#0079FF",
+          white: "#FFFFFF",
+          midnight: "#141D2F",
+          navy: "#1E2A47",
         },
       },
       fontFamily: {

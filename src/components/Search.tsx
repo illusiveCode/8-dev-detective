@@ -17,7 +17,7 @@ const NavBar: FC<SearchProps> = ({
 }) => {
   return (
     <form>
-      <div className="w-full relative bg-white dark:bg-dark-secondary h-[69px] flex items-center justify-between shadow-xl rounded-xl">
+      <div className="w-full relative bg-neutral-white dark:bg-dark-navy h-[60px] tablet:h-[69px] flex items-center justify-between shadow-xl rounded-xl">
         <div className="flex gap-2">
           <Image
             className="ml-4 object-contain"
@@ -29,11 +29,11 @@ const NavBar: FC<SearchProps> = ({
           <input
             type="text"
             placeholder={placeholder}
-            className="w-[184px] text-h4 bg-white dark:bg-dark-neutral placeholder-light-accent dark:placeholder-dark-secondary outline-none text-ellipsis caret-light-primary"
+            className="w-[184px] text-h4 bg-transparent dark:bg-dark-neutral placeholder-primary-steel dark:placeholder-dark-white text-primary-dark-blue dark:text-dark-white outline-none text-ellipsis caret-primary-blue"
           />
         </div>
         <p className="text-red-400 absolute right-32 hidden">{errorText}</p>
-        <button className="bg-light-primary rounded-lg px-4 h-12 mr-2 text-light-light-text active:opacity-50">
+        <button className="bg-primary-blue rounded-lg px-4 h-12 mr-2 text-body text-neutral-white active:opacity-50">
           {buttonText}
         </button>
       </div>

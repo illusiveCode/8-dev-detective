@@ -10,11 +10,11 @@ type NavBarProps = {
 const NavBar: FC<NavBarProps> = ({ text, title, iconUrl }) => {
   return (
     <nav className="max-w-1/2 flex justify-between mb-8">
-      <h1 className="text-h1 text-light-neutral dark:text-dark-secondary font-bold">
+      <h1 className="text-h1 text-primary-dark-blue dark:text-dark-white font-bold">
         {title}
       </h1>
       <div role="button" className="flex items-center gap-4">
-        <p className="text-h4 font-bold text-light-secondary dark:text-dark-secondary uppercase tracking-[2.5px]">
+        <p className="text-h4 font-bold text-primary-steel dark:text-dark-white uppercase tracking-[2.5px]">
           {text}
         </p>
         <Image src={iconUrl} alt={text} width={20} height={20} />

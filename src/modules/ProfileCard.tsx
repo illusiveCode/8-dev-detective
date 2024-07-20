@@ -45,10 +45,11 @@ const ProfileCard: React.FC = () => {
   if (error) return <p>Error fetching data: {error}</p>;
 
   return (
-    <div className="rounded-2xl bg-light-light">
+    <div className="rounded-2xl p-6 bg-light-light shadow-xl overflow-auto">
       <CardHeader
         image={user?.avatar_url ?? "default-avatar-url"}
         name={user?.name ?? "No name available"}
+        link={user?.html_url ?? ""}
         username={user?.login ?? "No username available"}
         joinedDate={
           user
