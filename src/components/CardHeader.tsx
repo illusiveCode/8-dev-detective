@@ -18,16 +18,20 @@ const CardHeader: FC<CardHeaderProps> = ({
 }) => (
   <div className="flex gap-6">
     <img
-      className="w-[70px] rounded-full "
+      className="w-[70px] h-[70px] tablet:w-[117px] tablet:h-[117px] rounded-full "
       src={image}
       alt={`${name}'s avatar`}
     />
-    <div className="">
-      <h2 className="">{name}</h2>
-      <Link href={link} className="text-light">
+    <div className="tablet:flex flex-col justify-center gap-1">
+      <h2 className="font-bold text-body text-primary-dark-blue dark:text-dark-white tablet:text-xl">
+        {name}
+      </h2>
+      <Link href={link} className="text-primary-blue text-sm tablet:text-md">
         @{username}
       </Link>
-      <p>Joined {joinedDate}</p>
+      <p className="text-sm tablet:text-body text-primary-grey dark:text-dark-white">
+        Joined {joinedDate}
+      </p>
     </div>
   </div>
 );

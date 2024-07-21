@@ -8,11 +8,11 @@ import ProfileCard from "@/modules/ProfileCard";
 
 const Home: NextPage<any> = () => {
   return (
-    <div className="bg-neutral-light-blue dark:bg-dark-midnight h-full md:h-screen flex items-center">
-      <div className="container mx-auto w-full">
+    <div className="bg-neutral-light-blue py-6 dark:bg-dark-midnight h-auto tablet:h-screen flex items-center justify-center">
+      <div className="container mx-auto w-full h-screen tablet:h-auto  max-w-[730px]">
         <NavBar iconUrl={moonImgUrl} text="Dark" title="DevDetective" />
         <Search
-          placeholder={"Search GitHub username..."}
+          placeholder={"Search GitHub username"}
           iconUrl={magnifyingGlass}
           buttonText={"Search"}
           errorText="No Results"

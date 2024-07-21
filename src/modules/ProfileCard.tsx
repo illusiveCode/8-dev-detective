@@ -1,11 +1,12 @@
+// components/ProfileCard.tsx
 "use client";
 
+import { useState, useEffect } from "react";
 import CardBio from "@/components/CardBio";
 import CardHeader from "@/components/CardHeader";
 import ProfileLinks from "@/components/ProfileLinks";
 import StatsCard from "@/components/StatsCard";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { fetchGithubUser } from "@/api/github";
 
 type User = {
   avatar_url: string;
@@ -28,24 +29,25 @@ const ProfileCard: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios
-      .get("https://api.github.com/users/octocat")
-      .then((response) => {
-        setUser(response.data);
-        setLoading(false);
-        console.log(response.data);
-      })
-      .catch((error) => {
+    const fetchData = async () => {
+      try {
+        const userData = await fetchGithubUser("octocat");
+        setUser(userData);
+      } catch (error: any) {
         setError(error.message);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching data: {error}</p>;
 
   return (
-    <div className="rounded-2xl p-6 bg-light-light shadow-xl overflow-auto">
+    <div className="profile-card">
       <CardHeader
         image={user?.avatar_url ?? "default-avatar-url"}
         name={user?.name ?? "No name available"}
@@ -61,7 +63,12 @@ const ProfileCard: React.FC = () => {
             : "No date available"
         }
       />
-      <CardBio text={user?.bio ?? "No bio available"} />
+      <CardBio
+        text={
+          user?.bio ??
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."
+        }
+      />
       <StatsCard
         repos={user?.public_repos ?? 0}
         followers={user?.followers ?? 0}
