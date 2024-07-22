@@ -1,12 +1,11 @@
 // components/ProfileCard.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { FC } from "react";
 import CardBio from "@/components/CardBio";
 import CardHeader from "@/components/CardHeader";
 import ProfileLinks from "@/components/ProfileLinks";
 import StatsCard from "@/components/StatsCard";
-import { fetchGithubUser } from "@/api/github";
 
 type User = {
   avatar_url: string;
@@ -23,28 +22,20 @@ type User = {
   html_url: string;
 };
 
-const ProfileCard: React.FC = () => {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+type ProfileCardProps = {
+  user: User | null;
+  loading: boolean;
+  error: string | null;
+};
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userData = await fetchGithubUser("octocat");
-        setUser(userData);
-      } catch (error: any) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+const ProfileCard: FC<ProfileCardProps> = ({ user, loading, error }) => {
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching data: {error}</p>;
+  if (error)
+    return (
+      <p className="text-primary-blue dark:text-dark-white text-center">
+        No results: {error}
+      </p>
+    );
 
   return (
     <div className="profile-card">
@@ -63,12 +54,7 @@ const ProfileCard: React.FC = () => {
             : "No date available"
         }
       />
-      <CardBio
-        text={
-          user?.bio ??
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."
-        }
-      />
+      <CardBio text={user?.bio ?? "This user has no bio"} />
       <StatsCard
         repos={user?.public_repos ?? 0}
         followers={user?.followers ?? 0}

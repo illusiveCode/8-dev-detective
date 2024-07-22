@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 type NavBarProps = {
@@ -13,6 +14,7 @@ const NavBar: FC<NavBarProps> = ({ text, title, iconUrl }) => {
       <h1 className="text-xl text-primary-dark-blue dark:text-dark-white font-bold">
         {title}
       </h1>
+
       <div role="button" className="flex items-center gap-4">
         <p className="text-sm font-bold text-primary-steel dark:text-dark-white uppercase tracking-[2.5px]">
           {text}

@@ -1,12 +1,14 @@
+// components/Search.tsx
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useState } from "react";
 
 type SearchProps = {
   buttonText: string;
   placeholder: string;
   altText?: string;
   iconUrl: string;
-  errorText: string;
+  errorText?: string;
+  onSearch: (value: string) => void;
 };
 
 const Search: FC<SearchProps> = ({
@@ -14,9 +16,17 @@ const Search: FC<SearchProps> = ({
   placeholder,
   iconUrl,
   errorText,
+  onSearch,
 }) => {
+  const [searchValue, setSearchValue] = useState<string>("");
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    onSearch(searchValue);
+  };
+
   return (
-    <form className="">
+    <form className="" onSubmit={handleSubmit}>
       <div className="w-full relative bg-neutral-white dark:bg-dark-navy h-[60px] tablet:h-[69px] flex items-center justify-between shadow-xl rounded-xl">
         <div className="flex gap-2">
           <Image
@@ -29,11 +39,15 @@ const Search: FC<SearchProps> = ({
           <input
             type="text"
             placeholder={placeholder}
-            className="w-[184px] tablet:min-w-[254px] text-sm tablet:text-md bg-transparent dark:bg-dark-neutral placeholder-primary-steel dark:placeholder-dark-white text-primary-dark-blue dark:text-dark-white outline-none text-ellipsis caret-primary-blue"
+            className="w-[184px] tablet:min-w-[254px] text-sm tablet:text-md bg-transparent dark:bg-dark-neutral placeholder-primary-steel dark:placeholder-dark-white text-primary-dark-blue dark:text-dark-white outline-none text-ellipsis caret-primary-blue select-all"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
           />
         </div>
-        <p className="text-red-400 absolute right-32 hidden">{errorText}</p>
-        <button className="bg-primary-blue rounded-lg px-4 h-[46px] tablet:h-[50px] mr-2 text-body tablet:text-md text-neutral-white active:opacity-50">
+        <button
+          type="submit"
+          className="bg-primary-blue rounded-lg px-4 h-[46px] tablet:h-[50px] mr-2 text-body tablet:text-md text-neutral-white active:opacity-50"
+        >
           {buttonText}
         </button>
       </div>
