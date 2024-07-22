@@ -9,7 +9,7 @@ type SearchProps = {
   errorText: string;
 };
 
-const NavBar: FC<SearchProps> = ({
+const Search: FC<SearchProps> = ({
   buttonText,
   placeholder,
   iconUrl,
@@ -41,4 +41,4 @@ const NavBar: FC<SearchProps> = ({
   );
 };
 
-export default NavBar;
+export default Search;
