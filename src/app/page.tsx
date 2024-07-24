@@ -51,7 +51,7 @@ const Home: NextPage<any> = () => {
   return (
     <div className="bg-neutral-light-blue py-6 dark:bg-dark-midnight tablet:min-w-[600px] h-auto tablet:h-screen flex items-center justify-center">
       <div className="container mx-auto  h-screen tablet:h-auto max-w-[730px] grid place-content-center ">
-        <NavBar iconUrl={moonImgUrl} text="Dark" title="DevDetective" />
+        <NavBar title="DevDetective" />
         <Search
           placeholder={"Search GitHub username"}
           iconUrl={magnifyingGlass}

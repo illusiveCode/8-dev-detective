@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
 import "./globals.css";
+import Providers from "./providers";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -18,8 +19,10 @@ interface RootLayoutProps {
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html lang="en">
-      <body className={spaceMono.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={spaceMono.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 };

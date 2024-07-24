@@ -39,7 +39,7 @@ const Search: FC<SearchProps> = ({
           <input
             type="text"
             placeholder={placeholder}
-            className="w-[184px] tablet:min-w-[254px] text-sm tablet:text-md bg-transparent dark:bg-dark-neutral placeholder-primary-steel dark:placeholder-dark-white text-primary-dark-blue dark:text-dark-white outline-none text-ellipsis caret-primary-blue select-all"
+            className="w-[184px] tablet:min-w-[254px] text-sm tablet:text-md bg-transparent dark:bg-dark-neutral placeholder-primary-steel dark:placeholder-dark-white text-primary-dark-blue dark:text-dark-white outline-none text-ellipsis caret-primary-blue select-all no-underline"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
