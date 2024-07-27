@@ -36,6 +36,7 @@ const Search: FC<SearchProps> = ({
             height={20}
           />
           <input
+            required
             spellCheck="false"
             type="text"
             placeholder={placeholder}
