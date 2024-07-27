@@ -1,4 +1,3 @@
-// components/Search.tsx
 import Image from "next/image";
 import { FC, useState } from "react";
 
@@ -37,9 +36,10 @@ const Search: FC<SearchProps> = ({
             height={20}
           />
           <input
+            spellCheck="false"
             type="text"
             placeholder={placeholder}
-            className="w-[184px] tablet:min-w-[254px] text-sm tablet:text-md bg-transparent dark:bg-dark-neutral placeholder-primary-steel dark:placeholder-dark-white text-primary-dark-blue dark:text-dark-white outline-none text-ellipsis caret-primary-blue select-all no-underline"
+            className="w-[184px] tablet:min-w-[254px] text-sm tablet:text-md bg-transparent dark:bg-dark-neutral placeholder-primary-steel dark:placeholder-dark-white text-primary-dark-blue dark:text-dark-white outline-none text-ellipsis caret-primary-blue"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />

@@ -1,4 +1,3 @@
-// api/github.ts
 import axios from "axios";
 
 export const fetchGithubUser = async (username: string) => {
