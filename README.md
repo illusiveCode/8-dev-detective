@@ -13,7 +13,7 @@ This is a solution to the [GitHub user search app challenge on Frontend Mentor](
 
 ![Project-Screenshot](./screenshot.png)
 
-- Live Site URL: ()
+- Live Site URL: (https://gitdevdetective.netlify.app/)
 
 ### Built with
 
