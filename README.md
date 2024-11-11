@@ -23,7 +23,7 @@ This is a solution to the [GitHub user search app challenge on Frontend Mentor](
 
 ### What I learned
 
-- Using axios for fetching data from the github users api
+- Using axios for fetching data from the github users API
 - Enhanced my knowledge of TypeScript
 - Creating a theme toggle switch with tailwind
 - Learned about some, not so common properties and classes such as `spellcheck` & `caret-color` on inputs
